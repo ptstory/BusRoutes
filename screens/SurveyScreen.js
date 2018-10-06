@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, View, Image } from "react-native";
+import { Button, TouchableOpacity, Text, StyleSheet, View, Image } from "react-native";
 
 import Header from "../components/Header";
 import SurveyQuestion from "../components/SurveyQuestion"
@@ -31,6 +31,8 @@ class SurveyScreen extends React.Component {
         <SurveyQuestion number={1}/>
         <SurveyQuestion number={2}/>
         <SurveyQuestion number={3}/>
+        <Button onPress={this.handleSuveySubmit} title="+20 for submitting survey"></Button>
+
 
 
         <TouchableOpacity onPress={() => navigate("Home")}>

@@ -32,7 +32,6 @@ class SurveyQuestion extends Component {
           onSelection={setSelectedAt.bind(this)}
           selectedOption={this.state.selectedAt}
         />
-        <Button onPress={this.handleSuveySubmit} title="+20 for submitting survey"></Button>
       </View>
     );
   }

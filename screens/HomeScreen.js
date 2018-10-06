@@ -34,7 +34,7 @@ class HomeScreen extends React.Component {
         <Button style={styles.button} onPress={this.handleCheckIn}title="+10 for checking in"></Button>
         <Button title="CHECK IN" onPress={() => navigate("CheckIn")} />
         <Button title="REWARDS" onPress={() => navigate("Rewards")} />
-        <Button title="MAP" onPress={() => navigate("Map")} />
+        {/* <Button title="MAP" onPress={() => navigate("Map")} /> */}
         <Button title="SURVEY" onPress={() => navigate("Survey")} />
 
         <TouchableOpacity onPress={() => navigate("Home")}>
