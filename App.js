@@ -6,6 +6,8 @@ import CheckInScreen from "./screens/CheckInScreen";
 import RewardsScreen from "./screens/RewardsScreen";
 import MapScreen from "./screens/MapScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import SurveyScreen from "./screens/SurveyScreen";
+
 
 
 
@@ -14,7 +16,8 @@ const App = createStackNavigator({
   CheckIn: { screen: CheckInScreen },
   Rewards: { screen: RewardsScreen },
   Map: { screen: MapScreen },
-  Profile: { screen: ProfileScreen }
+  Profile: { screen: ProfileScreen },
+  Survey: { screen: SurveyScreen },
 });
 
 // state = {

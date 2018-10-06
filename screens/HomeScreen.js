@@ -31,6 +31,7 @@ class HomeScreen extends React.Component {
         <Button title="CHECK IN" onPress={() => navigate("CheckIn")} />
         <Button title="REWARDS" onPress={() => navigate("Rewards")} />
         <Button title="MAP" onPress={() => navigate("Map")} />
+        <Button title="SURVEY" onPress={() => navigate("Survey")} />
 
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} />
