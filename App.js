@@ -7,11 +7,12 @@ import RewardsScreen from "./screens/RewardsScreen";
 import MapScreen from "./screens/MapScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import SurveyScreen from "./screens/SurveyScreen";
-
+import Login from "./screens/Login"
 
 
 
 const App = createStackNavigator({
+  Login: { screen: Login },
   Home: { screen: HomeScreen },
   CheckIn: { screen: CheckInScreen },
   Rewards: { screen: RewardsScreen },
