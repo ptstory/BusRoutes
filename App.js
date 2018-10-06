@@ -4,10 +4,10 @@ import React from 'react';
 import HomeScreen from "./screens/HomeScreen";
 import CheckInScreen from "./screens/CheckInScreen";
 import RewardsScreen from "./screens/RewardsScreen";
-import MapScreen from "./screens/MapScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import SurveyScreen from "./screens/SurveyScreen";
-import Login from "./screens/Login"
+import Login from "./screens/Login";
+import AchievementsScreen  from "./screens/AchievementsScreen";
 
 
 
@@ -16,9 +16,9 @@ const App = createStackNavigator({
   Home: { screen: HomeScreen },
   CheckIn: { screen: CheckInScreen },
   Rewards: { screen: RewardsScreen },
-  Map: { screen: MapScreen },
   Profile: { screen: ProfileScreen },
   Survey: { screen: SurveyScreen },
+  Achievements: { screen: AchievementsScreen },
 });
 
 // state = {

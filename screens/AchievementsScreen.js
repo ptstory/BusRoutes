@@ -1,20 +1,20 @@
 import React from "react";
 import { TouchableOpacity, Text, View, StyleSheet, Image, Button } from "react-native";
 
-class ProfileScreen extends React.Component {
+import Header from "../components/Header";
+
+class AchievementsScreen extends React.Component {
   static navigationOptions = {
-    title: "Profile"
+    title: "Achievements"
   };
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Image resizeMode="contain" style={styles.profile} source={require("../assets/avatar_icon.png")} />
-        <Text>Balance: </Text>
-        <Text>Miles: </Text>
-        <TouchableOpacity onPress={() => navigate("Achievements")}>
-          <Image style={styles.icon} source={require("../assets/trophy.png")} />
-        </TouchableOpacity>
+        <Header navigation={this.props.navigation} />
+        <Text>Progress Bar </Text>
+        <Text>Progress Bar </Text>
+        <Text>Progress Bar </Text>
         
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} />
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProfileScreen;
+export default AchievementsScreen;
