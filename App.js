@@ -1,21 +1,54 @@
+import {createStackNavigator } from "react-navigation";
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+import HomeScreen from "./screens/HomeScreen";
+import CheckInScreen from "./screens/CheckInScreen";
+import RewardsScreen from "./screens/RewardsScreen";
+import MapScreen from "./screens/MapScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+
+const App = createStackNavigator({
+  Home: { screen: HomeScreen },
+  CheckIn: { screen: CheckInScreen },
+  Rewards: { screen: RewardsScreen },
+  Map: { screen: MapScreen },
+  Profile: { screen: ProfileScreen }
 });
+
+// state = {
+//   balance: 0,
+//   checkedIn: false,
+//   show: true
+// };
+
+// const NestedNavigator = createStackNavigator({
+//   ScreenOne: {
+//       screen: CheckInScreen
+//   },
+//   ScreenTwo: {
+//       screen: RewardsScreen
+//   }
+// });
+
+// class NestedNavigatorWrapper extends React.Component {
+//   constructor(props)  {
+//       super(props);
+//   }
+//   render() {
+//       return (
+//           <DashboardNavigator screenProps={{ rootNavigation: this.props.navigation }} />
+//       );
+//   }
+// }
+// const AppNavigator = createStackNavigator({
+//   Home: {
+//       screen: HomeScreen
+//   },
+//   Nested: {
+//       screen: NestedNavigatorWrapper
+//   }
+// });
+
+export default App;
