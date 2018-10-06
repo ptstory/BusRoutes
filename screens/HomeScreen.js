@@ -7,6 +7,7 @@ import {
   Image
 } from "react-native";
 import Header from "../components/Header";
+import { ReactiveBase } from '@appbaseio/reactivesearch-native'
 
 class HomeScreen extends React.Component {
     constructor(props) {
@@ -25,6 +26,9 @@ class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
+      // TODO: is there a specific app name? what is the url? Add components as needed. test connection.
+      <ReactiveBase app="PantherRoutes" url="http://">
+      </ReactiveBase>
       <View>
         <Header balance={this.state.balance} navigation={this.props.navigation}/>
         <Button style={styles.button} onPress={this.handleCheckIn}title="+10 for checking in"></Button>
