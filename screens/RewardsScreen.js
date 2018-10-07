@@ -47,7 +47,7 @@ class RewardsScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <TouchableHighlight
           onPress={() => {
             this.setModalVisible(true);
@@ -107,7 +107,7 @@ class RewardsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center"
   },

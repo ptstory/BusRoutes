@@ -30,7 +30,7 @@ class HomeScreen extends React.Component {
     return (
         // // TODO: is there a specific app name? what is the url? Add components as needed. test connection.
         // <ReactiveBase app="PantherRoutes" url="http://35.231.186.113:9200"></ReactiveBase>
-      <View>
+      <View style={styles.container}>
         <Header balance={this.state.balance} navigation={this.props.navigation}/>
         <Button style={styles.button} onPress={this.handleCheckIn}title="+10 for checking in"></Button>
         <Button style={styles.button} title="CHECK IN" onPress={() => navigate("CheckIn")} />

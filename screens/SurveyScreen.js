@@ -23,7 +23,7 @@ class SurveyScreen extends React.Component {
     };
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <Header navigation={this.props.navigation} />
         {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
         {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
@@ -46,7 +46,7 @@ class SurveyScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center"
   },
