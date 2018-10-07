@@ -56,77 +56,79 @@ class RewardsScreen extends React.Component {
           <Text>Show Modal</Text>
         </TouchableHighlight>
         <Header navigation={this.props.navigation} />
-        <View style={{alignSelf: 'flex-start'}}>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setSelectedReward(this);
-          }}
-          addToOrder={this.addToOrder}
-        >
-          <Image style={styles.tiny} source={require("../assets/saxbys.jpg")} />
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setSelectedReward(this);
-          }}
-          addToOrder={this.addToOrder}
-        >
-          <Image
-            style={styles.tiny}
-            source={require("../assets/bookstore.jpg")}
-          />
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setSelectedReward(this);
-          }}
-          addToOrder={this.addToOrder}
-        >
-          <Image
-            style={styles.tiny}
-            source={require("../assets/bookstore.jpg")}
-          />
-        </TouchableHighlight>
-        </View>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{alignSelf: 'flex-start'}}>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image style={styles.tiny} source={require("../assets/saxbys.jpg")} />
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image
+                style={styles.tiny}
+                source={require("../assets/bookstore.jpg")}
+              />
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image
+                style={styles.tiny}
+                source={require("../assets/bookstore.jpg")}
+              />
+            </TouchableHighlight>
+            </View>
 
-        <View style={{alignSelf: 'flex-end'}}>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setSelectedReward(this);
-          }}
-          addToOrder={this.addToOrder}
-        >
-          <Image style={styles.tiny} source={require("../assets/condesa.jpg")} />
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setSelectedReward(this);
-          }}
-          addToOrder={this.addToOrder}
-        >
-          <Image
-            style={styles.tiny}
-            source={require("../assets/ebrik.jpg")}
-          />
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setSelectedReward(this);
-          }}
-          addToOrder={this.addToOrder}
-        >
-          <Image
-            style={styles.tiny}
-            source={require("../assets/kungfutea.jpg")}
-          />
-        </TouchableHighlight>
-        </View>
+            <View style={{alignSelf: 'flex-end'}}>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image style={styles.tiny} source={require("../assets/condesa.jpg")} />
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image
+                style={styles.tiny}
+                source={require("../assets/ebrik.jpg")}
+              />
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image
+                style={styles.tiny}
+                source={require("../assets/kungfutea.jpg")}
+              />
+            </TouchableHighlight>
+            </View>
+          </View>
 
         <TouchableOpacity onPress={() => navigate("Home")}>
             <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
