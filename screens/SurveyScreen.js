@@ -26,13 +26,12 @@ class SurveyScreen extends React.Component {
         <Header navigation={this.props.navigation} />
         {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
         {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
-        <Text h1>Tell us about your ride</Text>
-        <SurveyQuestion number={1}/>
+        <Text h1 style={{color: 'white'}}>Tell us about your ride</Text>
+
+          <SurveyQuestion number={1}/>
         <SurveyQuestion number={2}/>
         <SurveyQuestion number={3}/>
-        <Button onPress={this.handleSuveySubmit} title="+20 for submitting survey"></Button>
-
-
+        <Button onPress={this.handleSuveySubmit} title="+20 for submitting survey" />
 
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
@@ -57,7 +56,10 @@ const styles = StyleSheet.create({
   banner: {
     width: "100%",
     height: "40%"
-  }
+  },
+    question: {
+      margin: 20
+    }
 });
 
 export default SurveyScreen;

@@ -138,7 +138,7 @@ class RewardsScreen extends React.Component {
           onBackButtonPress={() => this.setState({ visibleModal: null })}>
           <View style={{ marginTop: 0, alignContent: 'center' }}>
             <View>
-            <Image resizeMode={'contain'} source={require("../assets/saxbys-modal.png")} />
+            <Image style={styles.modal} resizeMode={'contain'} source={require("../assets/saxbys-modal.png")} />
               {/* <Text>Image</Text>
               <Text>Name</Text>
               <Text>Desc</Text>
@@ -178,7 +178,11 @@ const styles = StyleSheet.create({
   tiny: {
     width: 75,
     height: 75
-  }
+  },
+    modal: {
+    justifyContent: 'center',
+        alignSelf: 'center'
+    }
 });
 
 export default RewardsScreen;
