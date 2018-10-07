@@ -33,7 +33,7 @@ class Header extends Component {
             source={require("../assets/avatar_icon.png")}
           />
         </TouchableOpacity>
-        <Text>Balance: {this.props.balance}</Text>
+        <Text style={styles.balance}>Balance: {this.props.balance}</Text>
       </View>
     );
   }
@@ -42,7 +42,12 @@ class Header extends Component {
 const styles = StyleSheet.create({
   avatar: {
     width: 50,
-    height: 50
+    height: 50,
+    alignSelf: 'flex-end',
+    padding: 10 
+  }, 
+  balance: {
+    padding: 10
   }
 });
 

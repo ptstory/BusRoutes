@@ -25,9 +25,8 @@ class RewardsScreen extends React.Component {
     };
   }
 
-  static navigationOptions = {
-    title: "Rewards"
-  };
+  static navigationOptions = { header: null };
+
 
   componentWillMount() {
     this.setState({

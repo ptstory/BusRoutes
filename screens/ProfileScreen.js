@@ -2,9 +2,8 @@ import React from "react";
 import { TouchableOpacity, Text, View, StyleSheet, Image, Button } from "react-native";
 
 class ProfileScreen extends React.Component {
-  static navigationOptions = {
-    title: "Profile"
-  };
+  static navigationOptions = { header: null };
+
   render() {
     const { navigate } = this.props.navigation;
     return (

@@ -1,19 +1,25 @@
 import React from "react";
-import { TouchableOpacity, Text, View, StyleSheet, Image, Button } from "react-native";
-import * as Progress from 'react-native-progress';
+import {
+  TouchableOpacity,
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button
+} from "react-native";
+import * as Progress from "react-native-progress";
 
 import Header from "../components/Header";
 
 class AchievementsScreen extends React.Component {
-  static navigationOptions = {
-    title: "Achievements"
-  };
+  static navigationOptions = { header: null };
+
   constructor(props) {
     super(props);
 
     this.state = {
       progress: 0,
-      indeterminate: true,
+      indeterminate: true
     };
   }
 
@@ -47,7 +53,10 @@ class AchievementsScreen extends React.Component {
           progress={this.state.progress}
           indeterminate={this.state.indeterminate}
         />
-        <Image style={styles.icon} source={require("../assets/stoplight.jpg")} />
+        <Image
+          style={styles.icon}
+          source={require("../assets/stoplight.jpg")}
+        />
         <Progress.Bar
           style={styles.progress}
           progress={this.state.progress}
@@ -59,7 +68,7 @@ class AchievementsScreen extends React.Component {
           progress={this.state.progress}
           indeterminate={this.state.indeterminate}
         />
-        
+
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </TouchableOpacity>
@@ -84,13 +93,12 @@ const styles = StyleSheet.create({
     height: "50%"
   },
   progress: {
-    margin: 10,
+    margin: 10
   },
   icon: {
     width: 50,
     height: 50
-  },
-
+  }
 });
 
 export default AchievementsScreen;

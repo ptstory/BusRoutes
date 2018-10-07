@@ -7,9 +7,8 @@ import Header from "../components/Header";
 class CheckInScreen extends React.Component {
   state = {};
 
-  static navigationOptions = {
-    title: "Check In"
-  };
+  static navigationOptions = { header: null };
+
   render() {
     const optionsAt = [
       "Langdale",
