@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
   balance: {
     padding: 10,
     margin:30,
-    marginLeft: 250
+    marginLeft: 250,
+    color: 'white'
   },
   view: {
     flexDirection: 'row'

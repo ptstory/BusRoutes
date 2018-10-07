@@ -45,11 +45,7 @@ class RewardsScreen extends React.Component {
   };
 
   render() {
-    //   const { navigate } = this.props.navigation;
-    //   let srcs = ["ebrik", "bookstore", "reubens", "condesa", "saxbys", "kungfutea"];
-    //   let images = srcs.map(image => {
-    //     return <Image key={image} source={require(`../assets/${image}.jpg`)} />
-    //  });
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <TouchableHighlight
@@ -133,7 +129,7 @@ class RewardsScreen extends React.Component {
         </View>
 
         <TouchableOpacity onPress={() => navigate("Home")}>
-          <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
+            <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
         </TouchableOpacity>
         <Modal
           animationType="slide"

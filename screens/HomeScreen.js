@@ -32,11 +32,19 @@ class HomeScreen extends React.Component {
         // <ReactiveBase app="PantherRoutes" url="http://35.231.186.113:9200"></ReactiveBase>
       <View style={styles.container}>
         <Header balance={this.state.balance} navigation={this.props.navigation}/>
-        <Button style={styles.button} onPress={this.handleCheckIn}title="+10 for checking in"></Button>
-        <Button style={styles.button} title="CHECK IN" onPress={() => navigate("CheckIn")} />
-        <Button style={styles.button} title="REWARDS" onPress={() => navigate("Rewards")} />
+        <View style={styles.button}>
+            <Button onPress={this.handleCheckIn}title="+10 for checking in" />
+        </View>
+        <View style={styles.button}>
+            <Button style={styles.button} title="CHECK IN" onPress={() => navigate("CheckIn")} />
+        </View>
+        <View style={styles.button}>
+            <Button style={styles.button} title="REWARDS" onPress={() => navigate("Rewards")} />
+        </View>
         {/* <Button title="MAP" onPress={() => navigate("Map")} /> */}
-        <Button style={styles.button} title="SURVEY" onPress={() => navigate("Survey")} />
+        <View style={styles.button}>
+            <Button style={styles.button} title="SURVEY" onPress={() => navigate("Survey")} />
+        </View>
 
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
@@ -50,18 +58,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center"
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   button: {
     backgroundColor: "#859a9b",
     borderRadius: 20,
     padding: 10,
-    margin: 100,
-    shadowColor: "#303838",
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 10,
-    shadowOpacity: 0.35
+    margin: 10,
+    // shadowColor: "#303838",
+    // shadowOffset: { width: 0, height: 5 },
+    // shadowRadius: 10,
+    // shadowOpacity: 0.35
   },
   icon: {
     width: 150,
