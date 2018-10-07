@@ -26,9 +26,8 @@ class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      // TODO: is there a specific app name? what is the url? Add components as needed. test connection.
-      <ReactiveBase app="PantherRoutes" url="http://">
-      </ReactiveBase>
+        // // TODO: is there a specific app name? what is the url? Add components as needed. test connection.
+        // <ReactiveBase app="PantherRoutes" url="http://35.231.186.113:9200"></ReactiveBase>
       <View>
         <Header balance={this.state.balance} navigation={this.props.navigation}/>
         <Button style={styles.button} onPress={this.handleCheckIn}title="+10 for checking in"></Button>
@@ -48,7 +47,7 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center"
   },
