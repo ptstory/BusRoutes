@@ -26,7 +26,7 @@ class Header extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.view}>
         <TouchableOpacity onPress={() => navigate("Profile")}>
           <Image
             style={styles.avatar}
@@ -44,10 +44,16 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     alignSelf: 'flex-end',
-    padding: 10 
+    padding: 10,
+    margin: 30
   }, 
   balance: {
-    padding: 10
+    padding: 10,
+    margin:30,
+    marginLeft: 250
+  },
+  view: {
+    flexDirection: 'row'
   }
 });
 

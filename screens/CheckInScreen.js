@@ -36,7 +36,7 @@ class CheckInScreen extends React.Component {
     };
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <Header navigation={this.props.navigation} />
         {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
         {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
@@ -60,7 +60,7 @@ class CheckInScreen extends React.Component {
         />
         </View>
         <TouchableOpacity onPress={() => navigate("Home")}>
-          <Image style={styles.icon} source={require("../assets/logo.png")} />
+          <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
         </TouchableOpacity>
       </View>
     );
@@ -70,13 +70,14 @@ class CheckInScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center"
   },
   icon: {
     width: 150,
-    height: 150
+    height: 150,
+    alignSelf: "center"
   },
   banner: {
     width: "100%",

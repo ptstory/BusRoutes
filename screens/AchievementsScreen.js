@@ -44,7 +44,7 @@ class AchievementsScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <Header navigation={this.props.navigation} />
 
         <Image style={styles.icon} source={require("../assets/bus.jpg")} />
@@ -70,7 +70,7 @@ class AchievementsScreen extends React.Component {
         />
 
         <TouchableOpacity onPress={() => navigate("Home")}>
-          <Image style={styles.logo} source={require("../assets/logo.png")} />
+          <Image style={styles.logo} source={require("../assets/logo.png")} resizeMode={'contain'} />
         </TouchableOpacity>
       </View>
     );
@@ -80,13 +80,14 @@ class AchievementsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center"
   },
   logo: {
     width: 150,
-    height: 150
+    height: 150,
+    alignSelf: 'center'
   },
   profile: {
     width: "100%",

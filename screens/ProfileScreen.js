@@ -7,7 +7,7 @@ class ProfileScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <Image resizeMode="contain" style={styles.profile} source={require("../assets/avatar_icon.png")} />
         <Text>Balance: </Text>
         <Text>Miles: </Text>
@@ -26,7 +26,7 @@ class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center"
   },
