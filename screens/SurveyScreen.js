@@ -7,9 +7,8 @@ import SurveyQuestion from "../components/SurveyQuestion"
 class SurveyScreen extends React.Component {
   state = {};
 
-  static navigationOptions = {
-    title: "Survey"
-  };
+  static navigationOptions = { header: null };
+
   render() {
     setSelectedAt = selectedAt => { 
       this.setState({

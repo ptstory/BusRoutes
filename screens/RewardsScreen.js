@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import Header from "../components/Header";
+import Reward from "../components/Reward";
 import sampleRewards from "../rewards";
 
 class RewardsScreen extends React.Component {
@@ -20,13 +21,12 @@ class RewardsScreen extends React.Component {
 
     this.state = {
       rewards: {},
-      modalVisible: false,
+      modalVisible: false
       // selectedReward: null
     };
   }
 
   static navigationOptions = { header: null };
-
 
   componentWillMount() {
     this.setState({
@@ -45,7 +45,11 @@ class RewardsScreen extends React.Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
+    //   const { navigate } = this.props.navigation;
+    //   let srcs = ["ebrik", "bookstore", "reubens", "condesa", "saxbys", "kungfutea"];
+    //   let images = srcs.map(image => {
+    //     return <Image key={image} source={require(`../assets/${image}.jpg`)} />
+    //  });
     return (
       <View>
         <TouchableHighlight
@@ -56,21 +60,78 @@ class RewardsScreen extends React.Component {
           <Text>Show Modal</Text>
         </TouchableHighlight>
         <Header navigation={this.props.navigation} />
-        {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
-        {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
-        {Object.keys(this.state.rewards).map(key => (
-          <TouchableHighlight
-            onPress={() => {
-              this.setModalVisible(true);
-              // this.setSelectedReward.bind(this);
-              this.setSelectedReward(this);
-            }}
-            key={key}
-            addToOrder={this.addToOrder}
-          >
-            <Text>{this.state.rewards[key].name}</Text>
-          </TouchableHighlight>
-        ))}
+        <View style={{alignSelf: 'flex-start'}}>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setSelectedReward(this);
+          }}
+          addToOrder={this.addToOrder}
+        >
+          <Image style={styles.tiny} source={require("../assets/ebrik.jpg")} />
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setSelectedReward(this);
+          }}
+          addToOrder={this.addToOrder}
+        >
+          <Image
+            style={styles.tiny}
+            source={require("../assets/bookstore.jpg")}
+          />
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setSelectedReward(this);
+          }}
+          addToOrder={this.addToOrder}
+        >
+          <Image
+            style={styles.tiny}
+            source={require("../assets/bookstore.jpg")}
+          />
+        </TouchableHighlight>
+        </View>
+
+        <View style={{alignSelf: 'flex-end'}}>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setSelectedReward(this);
+          }}
+          addToOrder={this.addToOrder}
+        >
+          <Image style={styles.tiny} source={require("../assets/condesa.jpg")} />
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setSelectedReward(this);
+          }}
+          addToOrder={this.addToOrder}
+        >
+          <Image
+            style={styles.tiny}
+            source={require("../assets/saxbys.jpg")}
+          />
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setSelectedReward(this);
+          }}
+          addToOrder={this.addToOrder}
+        >
+          <Image
+            style={styles.tiny}
+            source={require("../assets/kungfutea.jpg")}
+          />
+        </TouchableHighlight>
+        </View>
+
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} />
         </TouchableOpacity>
@@ -118,6 +179,10 @@ const styles = StyleSheet.create({
   banner: {
     width: "100%",
     height: "40%"
+  },
+  tiny: {
+    width: 75,
+    height: 75
   }
 });
 

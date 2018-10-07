@@ -40,13 +40,17 @@ class CheckInScreen extends React.Component {
         <Header navigation={this.props.navigation} />
         {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
         {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
+        <View style={{alignSelf: 'flex-start'}}>
         <Text>I am at:</Text>
         <SegmentedControls
+          // style={{width: '50%', height: '50%'}} 
           direction={"column"}
           options={optionsAt}
           onSelection={setSelectedAt.bind(this)}
           selectedOption={this.state.selectedAt}
         />
+        </View>
+        <View style={{alignSelf: 'flex-end'}}>
         <Text>Going to</Text>
         <SegmentedControls
           direction={"column"}
@@ -54,6 +58,7 @@ class CheckInScreen extends React.Component {
           onSelection={setSelectedTo.bind(this)}
           selectedOption={this.state.selectedTo}
         />
+        </View>
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} />
         </TouchableOpacity>
