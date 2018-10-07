@@ -36,7 +36,7 @@ class SurveyScreen extends React.Component {
 
 
         <TouchableOpacity onPress={() => navigate("Home")}>
-          <Image style={styles.icon} source={require("../assets/logo.png")} />
+          <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
         </TouchableOpacity>
       </View>
     );
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 150,
-    height: 150
+    height: 150,
+    alignSelf: 'center'
   },
   banner: {
     width: "100%",
