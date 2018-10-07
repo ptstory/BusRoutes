@@ -9,6 +9,8 @@ import SurveyScreen from "./screens/SurveyScreen";
 import Login from "./screens/Login";
 import AchievementsScreen  from "./screens/AchievementsScreen";
 
+console.disableYellowBox = true; 
+
 
 
 const App = createStackNavigator({

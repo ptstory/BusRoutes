@@ -64,7 +64,7 @@ class RewardsScreen extends React.Component {
           }}
           addToOrder={this.addToOrder}
         >
-          <Image style={styles.tiny} source={require("../assets/ebrik.jpg")} />
+          <Image style={styles.tiny} source={require("../assets/saxbys.jpg")} />
         </TouchableHighlight>
         <TouchableHighlight
           onPress={() => {
@@ -111,7 +111,7 @@ class RewardsScreen extends React.Component {
         >
           <Image
             style={styles.tiny}
-            source={require("../assets/saxbys.jpg")}
+            source={require("../assets/ebrik.jpg")}
           />
         </TouchableHighlight>
         <TouchableHighlight
@@ -131,27 +131,25 @@ class RewardsScreen extends React.Component {
         <TouchableOpacity onPress={() => navigate("Home")}>
             <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
         </TouchableOpacity>
-        <Modal
+        <Modal style={{ backgroundColor: 'white'}}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-          }}
-        >
-          <View style={{ marginTop: 22 }}>
+          onBackButtonPress={() => this.setState({ visibleModal: null })}>
+          <View style={{ marginTop: 0, alignContent: 'center' }}>
             <View>
-              <Text>Image</Text>
+            <Image resizeMode={'contain'} source={require("../assets/saxbys-modal.png")} />
+              {/* <Text>Image</Text>
               <Text>Name</Text>
               <Text>Desc</Text>
-              <Text>Price</Text>
+              <Text>Price</Text> */}
 
               <TouchableHighlight
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}
               >
-                <Text>Hide Modal</Text>
+                <Text style={{fontSize: 30}}>Dismiss</Text>
               </TouchableHighlight>
             </View>
           </View>
