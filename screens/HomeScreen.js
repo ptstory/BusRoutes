@@ -10,6 +10,8 @@ import Header from "../components/Header";
 import { ReactiveBase } from '@appbaseio/reactivesearch-native'
 
 class HomeScreen extends React.Component {
+  static navigationOptions = { header: null };
+
     constructor(props) {
         super(props);
         this.state = {
