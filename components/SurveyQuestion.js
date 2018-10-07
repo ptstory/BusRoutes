@@ -25,7 +25,7 @@ class SurveyQuestion extends Component {
       ];
     return (
       <View>
-      <Text>Was the bus clean?</Text> 
+      <Text style={{color: 'white'}}>Was the bus clean?</Text>
       <SegmentedControls
           direction={"row"}
           options={options}
