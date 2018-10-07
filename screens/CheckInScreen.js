@@ -40,24 +40,26 @@ class CheckInScreen extends React.Component {
         <Header navigation={this.props.navigation} />
         {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
         {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
-        <View style={{alignSelf: 'flex-start'}}>
-        <Text>I am at:</Text>
-        <SegmentedControls
-          // style={{width: '50%', height: '50%'}} 
-          direction={"column"}
-          options={optionsAt}
-          onSelection={setSelectedAt.bind(this)}
-          selectedOption={this.state.selectedAt}
-        />
-        </View>
-        <View style={{alignSelf: 'flex-end'}}>
-        <Text>Going to</Text>
-        <SegmentedControls
-          direction={"column"}
-          options={optionsTo}
-          onSelection={setSelectedTo.bind(this)}
-          selectedOption={this.state.selectedTo}
-        />
+        <View style={styles.overallcontrol}>
+            <View style={styles.controlstart}>
+            <Text style={{color: 'white'}}>I am at:</Text>
+            <SegmentedControls
+              // style={{width: '50%', height: '50%'}}
+              direction={"column"}
+              options={optionsAt}
+              onSelection={setSelectedAt.bind(this)}
+              selectedOption={this.state.selectedAt}
+            />
+            </View>
+            <View style={styles.controlstart}>
+            <Text style={{color: 'white'}}>Going to</Text>
+            <SegmentedControls
+              direction={"column"}
+              options={optionsTo}
+              onSelection={setSelectedTo.bind(this)}
+              selectedOption={this.state.selectedTo}
+            />
+            </View>
         </View>
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
@@ -82,7 +84,21 @@ const styles = StyleSheet.create({
   banner: {
     width: "100%",
     height: "40%"
-  }
+  },
+    controlstart: {
+        flexDirection: 'column',
+        alignSelf: 'flex-start',
+        margin: 20
+    },
+    controlend: {
+        flexDirection: 'column',
+        alignSelf: 'flex-end'
+    },
+    overallcontrol: {
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: "center"
+    }
 });
 
 export default CheckInScreen;
