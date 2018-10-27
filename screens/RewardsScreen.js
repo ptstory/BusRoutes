@@ -26,6 +26,8 @@ class RewardsScreen extends React.Component {
     };
   }
 
+  
+
   static navigationOptions = { header: null };
 
   componentWillMount() {
@@ -46,6 +48,8 @@ class RewardsScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    // const balance = this.props.getParam('balance', 99);
+    const { balance } = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
         <TouchableHighlight
@@ -55,7 +59,8 @@ class RewardsScreen extends React.Component {
         >
           <Text>Show Modal</Text>
         </TouchableHighlight>
-        <Header navigation={this.props.navigation} />
+        <Header balance={balance} navigation={this.props.navigation} />
+        <Text style={{color: 'yellow'}}>Balance: { balance }</Text>
           <View style={{flexDirection: 'row'}}>
             <View style={{alignSelf: 'flex-start'}}>
             <TouchableHighlight

@@ -25,6 +25,7 @@ class Header extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    // const { balance } = this.props.navigation.state.params;
     return (
       <View style={styles.view}>
         <TouchableOpacity onPress={() => navigate("Profile")}>
@@ -33,7 +34,7 @@ class Header extends Component {
             source={require("../assets/avatar_icon.png")}
           />
         </TouchableOpacity>
-        <Text style={styles.balance}>Balance: {this.props.balance}</Text>
+        <Text style={styles.balance}>Balance: {this.props.balance} </Text>
       </View>
     );
   }
@@ -43,18 +44,20 @@ const styles = StyleSheet.create({
   avatar: {
     width: 50,
     height: 50,
-    alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
     padding: 10,
     margin: 30
   }, 
   balance: {
     padding: 10,
     margin:30,
-    marginLeft: 250,
+    //marginLeft: 250,
+    textAlign: 'right',
     color: 'white'
   },
   view: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '100%'
   }
 });
 

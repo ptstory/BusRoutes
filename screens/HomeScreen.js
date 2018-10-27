@@ -11,6 +11,7 @@ import { ReactiveBase } from '@appbaseio/reactivesearch-native'
 
 class HomeScreen extends React.Component {
   static navigationOptions = { header: null };
+  
 
     constructor(props) {
         super(props);
@@ -39,7 +40,7 @@ class HomeScreen extends React.Component {
             <Button style={styles.button} title="CHECK IN" onPress={() => navigate("CheckIn")} />
         </View>
         <View style={styles.button}>
-            <Button style={styles.button} title="REWARDS" onPress={() => navigate("Rewards")} />
+            <Button style={styles.button} title="REWARDS" onPress={() => this.props.navigation.navigate("Rewards", {balance:  this.state.balance})} />
         </View>
         {/* <Button title="MAP" onPress={() => navigate("Map")} /> */}
         <View style={styles.button}>
