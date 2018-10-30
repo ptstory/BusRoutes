@@ -10,6 +10,10 @@ class SurveyScreen extends React.Component {
   static navigationOptions = { header: null };
 
   render() {
+    const { params } = this.props.navigation.state;
+    const { navigate } = this.props.navigation;
+    const { balance } = this.props.navigation.state.params;
+    
     setSelectedAt = selectedAt => { 
       this.setState({
         selectedAt
@@ -20,18 +24,20 @@ class SurveyScreen extends React.Component {
         selectedTo
       });
     };
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Header navigation={this.props.navigation} />
-        {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
-        {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
+        <Header balance={balance} navigation={this.props.navigation} />
         <Text h1 style={{color: 'white'}}>Tell us about your ride</Text>
 
           <SurveyQuestion number={1}/>
         <SurveyQuestion number={2}/>
         <SurveyQuestion number={3}/>
-        <Button onPress={this.handleSuveySubmit} title="+20 for submitting survey" />
+        <Button
+            title="Submit"
+            onPress={() => {
+              params.onSurvey();
+            }}
+          />
 
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />

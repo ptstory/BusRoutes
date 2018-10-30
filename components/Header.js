@@ -1,31 +1,9 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  View,
-  Button,
-  Text
-} from "react-native";
+import { StyleSheet, Image, TouchableOpacity, View, Text } from "react-native";
 
 class Header extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       balance: 0,
-//       checkedIn: false,
-//       show: true
-//     };
-//     this.handleCheckIn = this.handleCheckIn.bind(this);
-//   }
-
-//   handleCheckIn = () => {
-//     this.setState({ balance: this.state.balance + 10, checkedIn: true });
-//   };
-
   render() {
     const { navigate } = this.props.navigation;
-    // const { balance } = this.props.navigation.state.params;
     return (
       <View style={styles.view}>
         <TouchableOpacity onPress={() => navigate("Profile")}>
@@ -44,20 +22,18 @@ const styles = StyleSheet.create({
   avatar: {
     width: 50,
     height: 50,
-    // alignSelf: 'flex-end',
     padding: 10,
     margin: 30
-  }, 
+  },
   balance: {
     padding: 10,
-    margin:30,
-    //marginLeft: 250,
-    textAlign: 'right',
-    color: 'white'
+    margin: 30,
+    textAlign: "right",
+    color: "white"
   },
   view: {
-    flexDirection: 'row',
-    width: '100%'
+    flexDirection: "row",
+    width: "100%"
   }
 });
 

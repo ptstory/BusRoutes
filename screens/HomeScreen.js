@@ -7,48 +7,85 @@ import {
   Image
 } from "react-native";
 import Header from "../components/Header";
-import { ReactiveBase } from '@appbaseio/reactivesearch-native'
 
 class HomeScreen extends React.Component {
   static navigationOptions = { header: null };
-  
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          balance: 0,
-          checkedIn: false,
-          show: true
-        };
-        // this.handleCheckIn = this.handleCheckIn.bind(this);
-      }
-    
-      handleCheckIn = () => {
-        this.setState({ balance: this.state.balance + 10, checkedIn: true });
-      };
+  constructor(props) {
+    super(props);
+    this.state = {
+      balance: 0,
+      checkedIn: false,
+      show: true
+    };
+  }
+
+  handleCheckIn = () => {
+    this.setState({ balance: this.state.balance + 10, checkedIn: true });
+  };
+
+  handleSurvey = () => {
+    this.setState({ balance: this.state.balance + 20 });
+  };
+  
+  handlePurchase = () => {
+    this.setState({ balance: this.state.balance - 10 });
+  };
+  
   render() {
     const { navigate } = this.props.navigation;
     return (
-        // // TODO: is there a specific app name? what is the url? Add components as needed. test connection.
-        // <ReactiveBase app="PantherRoutes" url="http://35.231.186.113:9200"></ReactiveBase>
       <View style={styles.container}>
-        <Header balance={this.state.balance} navigation={this.props.navigation}/>
+        <Header
+          balance={this.state.balance}
+          navigation={this.props.navigation}
+        />
+        {/* <View style={styles.button}>
+          <Button onPress={this.handleCheckIn} title="+10 for checking in" />
+        </View> */}
         <View style={styles.button}>
-            <Button onPress={this.handleCheckIn}title="+10 for checking in" />
+          <Button
+            style={styles.button}
+            title="CHECK IN"
+            onPress={() =>
+              this.props.navigation.navigate("CheckIn", {
+                balance: this.state.balance,
+                onCheckIn: this.handleCheckIn.bind(this)
+              })
+            }
+          />
         </View>
         <View style={styles.button}>
-            <Button style={styles.button} title="CHECK IN" onPress={() => navigate("CheckIn")} />
+          <Button
+            style={styles.button}
+            title="REWARDS"
+            onPress={() =>
+              this.props.navigation.navigate("Rewards", {
+                balance: this.state.balance,
+                onPurchase: this.handlePurchase.bind(this)
+              })
+            }
+          />
         </View>
         <View style={styles.button}>
-            <Button style={styles.button} title="REWARDS" onPress={() => this.props.navigation.navigate("Rewards", {balance:  this.state.balance})} />
-        </View>
-        {/* <Button title="MAP" onPress={() => navigate("Map")} /> */}
-        <View style={styles.button}>
-            <Button style={styles.button} title="SURVEY" onPress={() => navigate("Survey")} />
+          <Button
+            style={styles.button}
+            title="SURVEY"
+            onPress={() =>
+              this.props.navigation.navigate("Survey", {
+                balance: this.state.balance,
+                onSurvey: this.handleSurvey.bind(this)
+              })
+            }
+          />
         </View>
 
         <TouchableOpacity onPress={() => navigate("Home")}>
-          <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
+          <Image
+            style={styles.icon}
+            source={require("../assets/logo.png")}
+            resizeMode={"contain"}
+          />
         </TouchableOpacity>
       </View>
     );
@@ -58,7 +95,7 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#000"
     // alignItems: "center",
     // justifyContent: "center",
   },
@@ -66,7 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#859a9b",
     borderRadius: 20,
     padding: 10,
-    margin: 10,
+    margin: 10
     // shadowColor: "#303838",
     // shadowOffset: { width: 0, height: 5 },
     // shadowRadius: 10,

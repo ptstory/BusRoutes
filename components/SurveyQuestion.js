@@ -20,8 +20,8 @@ class SurveyQuestion extends Component {
 
   render() {
     const options = [
-        "Good",
-        "Bad"
+        "Yes",
+        "No"
       ];
     return (
       <View>

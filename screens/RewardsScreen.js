@@ -6,7 +6,8 @@ import {
   View,
   TouchableOpacity,
   Modal,
-  TouchableHighlight
+  TouchableHighlight,
+  Button
 } from "react-native";
 
 import Header from "../components/Header";
@@ -25,8 +26,6 @@ class RewardsScreen extends React.Component {
       // selectedReward: null
     };
   }
-
-  
 
   static navigationOptions = { header: null };
 
@@ -48,8 +47,8 @@ class RewardsScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    // const balance = this.props.getParam('balance', 99);
     const { balance } = this.props.navigation.state.params;
+    const { params } = this.props.navigation.state;
     return (
       <View style={styles.container}>
         <TouchableHighlight
@@ -60,18 +59,11 @@ class RewardsScreen extends React.Component {
           <Text>Show Modal</Text>
         </TouchableHighlight>
         <Header balance={balance} navigation={this.props.navigation} />
-        <Text style={{color: 'yellow'}}>Balance: { balance }</Text>
-          <View style={{flexDirection: 'row'}}>
-            <View style={{alignSelf: 'flex-start'}}>
-            <TouchableHighlight
-              onPress={() => {
-                this.setModalVisible(true);
-                this.setSelectedReward(this);
-              }}
-              addToOrder={this.addToOrder}
-            >
-              <Image style={styles.tiny} source={require("../assets/saxbys.jpg")} />
-            </TouchableHighlight>
+        <View>
+        </View>
+        {/* <Text style={{color: 'yellow'}}>Balance: { balance }</Text> */}
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ alignSelf: "flex-start" }}>
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
@@ -81,7 +73,7 @@ class RewardsScreen extends React.Component {
             >
               <Image
                 style={styles.tiny}
-                source={require("../assets/bookstore.jpg")}
+                source={require("../assets/saxbys.jpg")}
               />
             </TouchableHighlight>
             <TouchableHighlight
@@ -96,9 +88,21 @@ class RewardsScreen extends React.Component {
                 source={require("../assets/bookstore.jpg")}
               />
             </TouchableHighlight>
-            </View>
+            <TouchableHighlight
+              onPress={() => {
+                this.setModalVisible(true);
+                this.setSelectedReward(this);
+              }}
+              addToOrder={this.addToOrder}
+            >
+              <Image
+                style={styles.tiny}
+                source={require("../assets/bookstore.jpg")}
+              />
+            </TouchableHighlight>
+          </View>
 
-            <View style={{alignSelf: 'flex-end'}}>
+          <View style={{ alignSelf: "flex-end" }}>
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
@@ -106,7 +110,10 @@ class RewardsScreen extends React.Component {
               }}
               addToOrder={this.addToOrder}
             >
-              <Image style={styles.tiny} source={require("../assets/condesa.jpg")} />
+              <Image
+                style={styles.tiny}
+                source={require("../assets/condesa.jpg")}
+              />
             </TouchableHighlight>
             <TouchableHighlight
               onPress={() => {
@@ -132,20 +139,37 @@ class RewardsScreen extends React.Component {
                 source={require("../assets/kungfutea.jpg")}
               />
             </TouchableHighlight>
-            </View>
           </View>
+        </View>
+
+         <Button
+            title="Purchase"
+            onPress={() => {
+              params.onPurchase();
+            }}
+          />
 
         <TouchableOpacity onPress={() => navigate("Home")}>
-            <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
+          <Image
+            style={styles.icon}
+            source={require("../assets/logo.png")}
+            resizeMode={"contain"}
+          />
         </TouchableOpacity>
-        <Modal style={{ backgroundColor: 'white'}}
+        <Modal
+          style={{ backgroundColor: "white" }}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
-          onBackButtonPress={() => this.setState({ visibleModal: null })}>
-          <View style={{ marginTop: 0, alignContent: 'center' }}>
+          onBackButtonPress={() => this.setState({ visibleModal: null })}
+        >
+          <View style={{ marginTop: 0, alignContent: "center" }}>
             <View>
-            <Image style={styles.modal} resizeMode={'contain'} source={require("../assets/saxbys-modal.png")} />
+              <Image
+                style={styles.modal}
+                resizeMode={"contain"}
+                source={require("../assets/saxbys-modal.png")}
+              />
               {/* <Text>Image</Text>
               <Text>Name</Text>
               <Text>Desc</Text>
@@ -156,7 +180,7 @@ class RewardsScreen extends React.Component {
                   this.setModalVisible(!this.state.modalVisible);
                 }}
               >
-                <Text style={{fontSize: 30}}>Dismiss</Text>
+                <Text style={{ fontSize: 30 }}>Dismiss</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -176,7 +200,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 150,
     height: 150,
-    alignSelf: 'center'
+    alignSelf: "center"
   },
   banner: {
     width: "100%",
@@ -186,10 +210,10 @@ const styles = StyleSheet.create({
     width: 75,
     height: 75
   },
-    modal: {
-    justifyContent: 'center',
-        alignSelf: 'center'
-    }
+  modal: {
+    justifyContent: "center",
+    alignSelf: "center"
+  }
 });
 
 export default RewardsScreen;

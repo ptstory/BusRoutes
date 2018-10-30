@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, View, Image } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View, Image, Button } from "react-native";
 import { SegmentedControls } from "react-native-radio-buttons";
 
 import Header from "../components/Header";
@@ -10,6 +10,9 @@ class CheckInScreen extends React.Component {
   static navigationOptions = { header: null };
 
   render() {
+    const { params } = this.props.navigation.state;
+    const { navigate } = this.props.navigation;
+    const { balance } = this.props.navigation.state.params;
     const optionsAt = [
       "Langdale",
       "Blue Lot",
@@ -34,12 +37,9 @@ class CheckInScreen extends React.Component {
         selectedTo
       });
     };
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Header navigation={this.props.navigation} />
-        {/* <Header balance={this.state.balance} navigation={this.props.navigation}/> */}
-        {/* <Image resizeMode="contain" style={styles.banner} source={require("../assets/check-in-banner.png")} /> */}
+        <Header balance={balance} navigation={this.props.navigation} />
         <View style={styles.overallcontrol}>
             <View style={styles.controlstart}>
             <Text style={{color: 'white'}}>I am at:</Text>
@@ -60,6 +60,14 @@ class CheckInScreen extends React.Component {
               selectedOption={this.state.selectedTo}
             />
             </View>
+        </View>
+        <View style={styles.button}>
+        <Button
+            title="Submit"
+            onPress={() => {
+              params.onCheckIn();
+            }}
+          />
         </View>
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
