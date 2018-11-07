@@ -21,16 +21,16 @@ class HomeScreen extends React.Component {
   }
 
   handleCheckIn = () => {
-    this.setState({ balance: this.state.balance + 10, checkedIn: true });
+    this.setState({ balance: this.state.balance + 30, checkedIn: true });
   };
 
   handleSurvey = () => {
-    this.setState({ balance: this.state.balance + 20 });
+    this.setState({ balance: this.state.balance + 70 });
   };
    
   handlePurchase = () => {
     var newBalance;
-    newBalance = this.state.balance >= 30 ? this.state.balance - 30 : this.state.balance;
+    newBalance = this.state.balance >= 100 ? this.state.balance - 100 : this.state.balance;
     this.setState({balance: newBalance})
     // this.setState({ balance: this.state.balance - 30 });
   };

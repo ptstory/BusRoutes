@@ -169,8 +169,8 @@ class RewardsScreen extends React.Component {
                   title="Purchase"
                   onPress={() => {
                     params.onPurchase();
-                    if(balance >= 30){
-                      this.props.navigation.setParams({ balance: balance - 30 }); // this is hacky but what can ya do
+                    if(balance >= 100){
+                      this.props.navigation.setParams({ balance: balance - 100 }); // this is hacky but what can ya do
                     }
                     this.setModalVisible(!this.state.modalVisible);
                   }}

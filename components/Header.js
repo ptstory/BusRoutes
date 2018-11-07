@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 30,
     textAlign: "right",
-    color: "white"
+    color: "white",
+    fontSize: 18
   },
   view: {
     flexDirection: "row",
