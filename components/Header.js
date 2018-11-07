@@ -15,7 +15,7 @@ class Header extends Component {
         >
           <Image
             style={styles.avatar}
-            source={require("../assets/avatar_icon.png")}
+            source={require("../assets/perry_profile.jpeg")}
           />
         </TouchableOpacity>
         <Text style={styles.balance}>Balance: {this.props.balance} </Text>
@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     padding: 10,
-    margin: 30
+    margin: 30,
+    borderRadius: 50 / 2
   },
   balance: {
     padding: 10,

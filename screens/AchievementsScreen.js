@@ -43,9 +43,11 @@ class AchievementsScreen extends React.Component {
   }
   render() {
     const { navigate } = this.props.navigation;
+    const { balance } = this.props.navigation.state.params;
+
     return (
       <View style={styles.container}>
-        <Header navigation={this.props.navigation} />
+        <Header balance={balance} navigation={this.props.navigation} />
 
         <Image style={styles.icon} source={require("../assets/bus.jpg")} />
         <Progress.Bar

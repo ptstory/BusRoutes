@@ -1,5 +1,12 @@
 import React from "react";
-import { TouchableOpacity, Text, View, StyleSheet, Image, Button } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button
+} from "react-native";
 
 class ProfileScreen extends React.Component {
   static navigationOptions = { header: null };
@@ -9,15 +16,29 @@ class ProfileScreen extends React.Component {
     const { balance } = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
-        <Image resizeMode="contain" style={styles.profile} source={require("../assets/avatar_icon.png")} />
-        <Text style={{color: 'white', fontSize: 32}}>Balance: {balance}</Text> 
+        <Image
+          resizeMode="contain"
+          style={styles.profile}
+          source={require("../assets/perry_profile.jpeg")}
+        />
+        <Text style={{ color: "white", fontSize: 32 }}>Balance: {balance}</Text>
         <Text>Miles: </Text>
-        <TouchableOpacity onPress={() => navigate("Achievements")}>
+        <TouchableOpacity 
+        onPress={() =>
+              this.props.navigation.navigate("Achievements", {
+                balance: this.props.navigation.state.params.balance,
+              })
+            }
+        >
           <Image style={styles.icon} source={require("../assets/trophy.png")} />
         </TouchableOpacity>
-        
+
         <TouchableOpacity onPress={() => navigate("Home")}>
-          <Image style={styles.icon} source={require("../assets/logo.png")} resizeMode={'contain'} />
+          <Image
+            style={styles.icon}
+            source={require("../assets/logo.png")}
+            resizeMode={"contain"}
+          />
         </TouchableOpacity>
       </View>
     );
@@ -34,11 +55,12 @@ const styles = StyleSheet.create({
   icon: {
     width: 70,
     height: 70,
-    alignSelf: 'center'
+    alignSelf: "center"
   },
   profile: {
-    width: "75%",
-    height: "50%"
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2 // this makes it round
   }
 });
 
