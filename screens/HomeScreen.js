@@ -29,7 +29,7 @@ class HomeScreen extends React.Component {
   };
   
   handlePurchase = () => {
-    this.setState({ balance: this.state.balance - 10 });
+    this.setState({ balance: this.state.balance - 30 });
   };
   
   render() {
@@ -62,7 +62,7 @@ class HomeScreen extends React.Component {
             onPress={() =>
               this.props.navigation.navigate("Rewards", {
                 balance: this.state.balance,
-                onPurchase: this.handlePurchase.bind(this)
+                onPurchase: this.handlePurchase.bind(this),
               })
             }
           />

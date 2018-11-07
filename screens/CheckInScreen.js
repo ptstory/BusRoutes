@@ -66,6 +66,7 @@ class CheckInScreen extends React.Component {
             title="Submit"
             onPress={() => {
               params.onCheckIn();
+              this.props.navigation.setParams({ balance: balance +10 }) // this is hacky but what can ya do
             }}
           />
         </View>

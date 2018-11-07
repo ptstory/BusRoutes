@@ -146,6 +146,7 @@ class RewardsScreen extends React.Component {
             title="Purchase"
             onPress={() => {
               params.onPurchase();
+              this.props.navigation.setParams({ balance: balance - 30 }) // this is hacky but what can ya do
             }}
           />
 

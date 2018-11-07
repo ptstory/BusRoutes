@@ -13,7 +13,7 @@ class SurveyScreen extends React.Component {
     const { params } = this.props.navigation.state;
     const { navigate } = this.props.navigation;
     const { balance } = this.props.navigation.state.params;
-    
+
     setSelectedAt = selectedAt => { 
       this.setState({
         selectedAt
@@ -36,6 +36,7 @@ class SurveyScreen extends React.Component {
             title="Submit"
             onPress={() => {
               params.onSurvey();
+              this.props.navigation.setParams({ balance: balance +20 }) // this is hacky but what can ya do
             }}
           />
 
