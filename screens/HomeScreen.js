@@ -27,9 +27,12 @@ class HomeScreen extends React.Component {
   handleSurvey = () => {
     this.setState({ balance: this.state.balance + 20 });
   };
-  
+   
   handlePurchase = () => {
-    this.setState({ balance: this.state.balance - 30 });
+    var newBalance;
+    newBalance = this.state.balance >= 30 ? this.state.balance - 30 : this.state.balance;
+    this.setState({balance: newBalance})
+    // this.setState({ balance: this.state.balance - 30 });
   };
   
   render() {
