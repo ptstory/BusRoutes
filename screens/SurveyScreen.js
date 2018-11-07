@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, TouchableOpacity, Text, StyleSheet, View, Image } from "react-native";
+import { Button, TouchableOpacity, Text, StyleSheet, View, Image, FlatList } from "react-native";
 
 import Header from "../components/Header";
 import SurveyQuestion from "../components/SurveyQuestion"
@@ -10,6 +10,7 @@ class SurveyScreen extends React.Component {
   static navigationOptions = { header: null };
 
   render() {
+    
     const { params } = this.props.navigation.state;
     const { navigate } = this.props.navigation;
     const { balance } = this.props.navigation.state.params;
@@ -27,11 +28,18 @@ class SurveyScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header balance={balance} navigation={this.props.navigation} />
-        <Text h1 style={{color: 'white'}}>Tell us about your ride</Text>
+        <View>
+        <Text style={{color: 'white', fontSize: 30}}>Tell us about your ride</Text>
+        </View>
 
-          <SurveyQuestion number={1}/>
-        <SurveyQuestion number={2}/>
-        <SurveyQuestion number={3}/>
+         <FlatList
+          data={[
+            {key: 'Was the bus clean?'},
+            {key: 'Was your driver friendly?'},
+            {key: 'Are you a fan of coffee?'}
+          ]}
+          renderItem={({item}) => <SurveyQuestion question={item.key} style={{color: 'white'}}></SurveyQuestion>}
+        />
         <Button
             title="Submit"
             onPress={() => {

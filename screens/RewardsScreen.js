@@ -59,8 +59,7 @@ class RewardsScreen extends React.Component {
           <Text>Show Modal</Text>
         </TouchableHighlight>
         <Header balance={balance} navigation={this.props.navigation} />
-        <View>
-        </View>
+        <View />
         {/* <Text style={{color: 'yellow'}}>Balance: { balance }</Text> */}
         <View style={{ flexDirection: "row" }}>
           <View style={{ alignSelf: "flex-start" }}>
@@ -142,13 +141,13 @@ class RewardsScreen extends React.Component {
           </View>
         </View>
 
-         <Button
+        {/* <Button
             title="Purchase"
             onPress={() => {
               params.onPurchase();
               this.props.navigation.setParams({ balance: balance - 30 }) // this is hacky but what can ya do
             }}
-          />
+          /> */}
 
         <TouchableOpacity onPress={() => navigate("Home")}>
           <Image
@@ -163,6 +162,9 @@ class RewardsScreen extends React.Component {
           transparent={false}
           visible={this.state.modalVisible}
           onBackButtonPress={() => this.setState({ visibleModal: null })}
+          onRequestClose={() => {
+            this.visibleModal(false);
+          }}
         >
           <View style={{ marginTop: 0, alignContent: "center" }}>
             <View>
@@ -171,18 +173,25 @@ class RewardsScreen extends React.Component {
                 resizeMode={"contain"}
                 source={require("../assets/saxbys-modal.png")}
               />
-              {/* <Text>Image</Text>
-              <Text>Name</Text>
-              <Text>Desc</Text>
-              <Text>Price</Text> */}
-
-              <TouchableHighlight
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}
-              >
-                <Text style={{ fontSize: 30 }}>Dismiss</Text>
-              </TouchableHighlight>
+              <View>
+              <Button
+                  title="Purchase"
+                  onPress={() => {
+                    params.onPurchase();
+                    this.props.navigation.setParams({ balance: balance - 30 }); // this is hacky but what can ya do
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
+                />
+              </View>
+              <View>
+                <TouchableHighlight
+                  onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
+                >
+                  <Text style={{ fontSize: 30, flex: 1 }}>Dismiss</Text>
+                </TouchableHighlight>
+              </View>
             </View>
           </View>
         </Modal>

@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { View, Button, Text } from 'react-native';
+import React, { Component } from "react";
+import { View, Button, Text } from "react-native";
 import { SegmentedControls } from "react-native-radio-buttons";
-
 
 class SurveyQuestion extends Component {
   constructor(props) {
@@ -15,23 +14,33 @@ class SurveyQuestion extends Component {
   }
 
   handleSuveySubmit = () => {
-    this.setState({ balance: this.state.balance + 20});
-  }
+    this.setState({ balance: this.state.balance + 20 });
+  };
 
   render() {
-    const options = [
-        "Yes",
-        "No"
-      ];
+    const { details, index } = this.props;
+
+    const questions = [
+      "Was your bus clean?",
+      "Second Questions?",
+      "Third Questions?"
+    ];
+    const options = ["Yes", "No"];
     return (
       <View>
-      <Text style={{color: 'white'}}>Was the bus clean?</Text>
-      <SegmentedControls
-          direction={"row"}
-          options={options}
-          onSelection={setSelectedAt.bind(this)}
-          selectedOption={this.state.selectedAt}
-        />
+        <View>
+          <Text style={{ color: "white", fontSize: 18 }}>
+            {this.props.question}
+          </Text>
+        </View>
+        <View>
+          <SegmentedControls
+            direction={"row"}
+            options={options}
+            onSelection={setSelectedAt.bind(this)}
+            selectedOption={this.state.selectedAt}
+          />
+        </View>
       </View>
     );
   }

@@ -14,12 +14,6 @@ class Balance extends Component {
   handleCheckIn = () => {
     this.setState({ balance: this.state.balance + 10, checkedIn: true });
   }
-//   DecreaseItem = () => {
-//     this.setState({ clicks: this.state.clicks - 1 });
-//   }
-//   ToggleClick = () => {
-//     this.setState({ show: !this.state.show });
-//   }
 
   render() {
     return (
