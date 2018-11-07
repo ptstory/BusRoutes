@@ -6,7 +6,13 @@ class Header extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.view}>
-        <TouchableOpacity onPress={() => navigate("Profile")}>
+        <TouchableOpacity 
+        onPress={() =>
+              this.props.navigation.navigate("Profile", {
+                balance: this.props.balance,
+              })
+            }
+        >
           <Image
             style={styles.avatar}
             source={require("../assets/avatar_icon.png")}
@@ -17,6 +23,7 @@ class Header extends Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   avatar: {

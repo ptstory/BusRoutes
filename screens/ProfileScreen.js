@@ -6,10 +6,11 @@ class ProfileScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    const { balance } = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
         <Image resizeMode="contain" style={styles.profile} source={require("../assets/avatar_icon.png")} />
-        <Text>Balance: </Text>
+        <Text style={{color: 'white', fontSize: 32}}>Balance: {balance}</Text> 
         <Text>Miles: </Text>
         <TouchableOpacity onPress={() => navigate("Achievements")}>
           <Image style={styles.icon} source={require("../assets/trophy.png")} />
@@ -31,12 +32,12 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   icon: {
-    width: 150,
-    height: 150,
+    width: 70,
+    height: 70,
     alignSelf: 'center'
   },
   profile: {
-    width: "100%",
+    width: "75%",
     height: "50%"
   }
 });

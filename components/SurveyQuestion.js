@@ -5,7 +5,6 @@ import { SegmentedControls } from "react-native-radio-buttons";
 class SurveyQuestion extends Component {
   constructor(props) {
     super(props);
-    number = this.props.number;
     this.state = {
       balance: 0,
       checkedIn: false,
@@ -18,13 +17,6 @@ class SurveyQuestion extends Component {
   };
 
   render() {
-    const { details, index } = this.props;
-
-    const questions = [
-      "Was your bus clean?",
-      "Second Questions?",
-      "Third Questions?"
-    ];
     const options = ["Yes", "No"];
     return (
       <View>

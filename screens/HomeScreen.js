@@ -40,9 +40,6 @@ class HomeScreen extends React.Component {
           balance={this.state.balance}
           navigation={this.props.navigation}
         />
-        {/* <View style={styles.button}>
-          <Button onPress={this.handleCheckIn} title="+10 for checking in" />
-        </View> */}
         <View style={styles.button}>
           <Button
             style={styles.button}
