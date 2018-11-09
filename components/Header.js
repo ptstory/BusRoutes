@@ -3,15 +3,14 @@ import { StyleSheet, Image, TouchableOpacity, View, Text } from "react-native";
 
 class Header extends Component {
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.view}>
-        <TouchableOpacity 
-        onPress={() =>
-              this.props.navigation.navigate("Profile", {
-                balance: this.props.balance,
-              })
-            }
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate("Profile", {
+              balance: this.props.balance
+            })
+          }
         >
           <Image
             style={styles.avatar}
@@ -23,7 +22,6 @@ class Header extends Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   avatar: {

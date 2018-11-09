@@ -18,12 +18,13 @@ class RewardsScreen extends React.Component {
   constructor() {
     super();
 
-    // this.loadRewards = this.loadRewards.bind(this);
-
     this.state = {
       rewards: {},
-      modalVisible: false
-      // selectedReward: null
+      modalVisible: false,
+      // selectedReward: { icon: "../assets/saxbys.jpg", desc: 'description', cost: 100},
+      icon: "",
+      desc: "",
+      cost: 999
     };
   }
 
@@ -40,15 +41,27 @@ class RewardsScreen extends React.Component {
   }
 
   setSelectedReward = selectedReward => {
-    this.setState({
-      selectedReward
-    });
+    this.setState(prevState => ({
+      selectedReward: {
+        ...prevState.selectedReward,
+        desc: this.desc
+      }
+    }));
   };
 
   render() {
+    let icons = {
+      saxbys: require("../assets/saxbys-modal.png"),
+      bookstore: require("../assets/bookstore.jpg"),
+      reubens: require("../assets/reubens.jpg"),
+      condesa: require("../assets/condesa.jpg"),
+      ebrik: require("../assets/ebrik.jpg"),
+      kungfutea: require("../assets/kungfutea.jpg")
+    };
     const { navigate } = this.props.navigation;
     const { balance } = this.props.navigation.state.params;
     const { params } = this.props.navigation.state;
+
     return (
       <View style={styles.container}>
         <TouchableHighlight
@@ -60,15 +73,17 @@ class RewardsScreen extends React.Component {
         </TouchableHighlight>
         <Header balance={balance} navigation={this.props.navigation} />
         <View />
-        {/* <Text style={{color: 'yellow'}}>Balance: { balance }</Text> */}
         <View style={{ flexDirection: "row" }}>
           <View style={{ alignSelf: "flex-start" }}>
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
-                this.setSelectedReward(this);
+                this.setState({
+                  icon: "saxbys",
+                  desc: "$2 off any hot beverage",
+                  cost: 100
+                });
               }}
-              addToOrder={this.addToOrder}
             >
               <Image
                 style={styles.tiny}
@@ -78,9 +93,12 @@ class RewardsScreen extends React.Component {
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
-                this.setSelectedReward(this);
+                this.setState({
+                  icon: "bookstore",
+                  desc: "something something bookstore",
+                  cost: 400
+                });
               }}
-              addToOrder={this.addToOrder}
             >
               <Image
                 style={styles.tiny}
@@ -90,13 +108,16 @@ class RewardsScreen extends React.Component {
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
-                this.setSelectedReward(this);
+                this.setState({
+                  icon: "reubens",
+                  desc: "something something rebuens",
+                  cost: 100
+                });
               }}
-              addToOrder={this.addToOrder}
             >
               <Image
                 style={styles.tiny}
-                source={require("../assets/bookstore.jpg")}
+                source={require("../assets/reubens.jpg")}
               />
             </TouchableHighlight>
           </View>
@@ -105,9 +126,12 @@ class RewardsScreen extends React.Component {
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
-                this.setSelectedReward(this);
+                this.setState({
+                  icon: "condesa",
+                  desc: "something something condesa",
+                  cost: 250
+                });
               }}
-              addToOrder={this.addToOrder}
             >
               <Image
                 style={styles.tiny}
@@ -117,9 +141,12 @@ class RewardsScreen extends React.Component {
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
-                this.setSelectedReward(this);
+                this.setState({
+                  icon: "ebrik",
+                  desc: "something someting ebrik",
+                  cost: 150
+                });
               }}
-              addToOrder={this.addToOrder}
             >
               <Image
                 style={styles.tiny}
@@ -129,9 +156,12 @@ class RewardsScreen extends React.Component {
             <TouchableHighlight
               onPress={() => {
                 this.setModalVisible(true);
-                this.setSelectedReward(this);
+                this.setState({
+                  icon: "kungfutea",
+                  desc: "something something kungfutea",
+                  cost: 200
+                });
               }}
-              addToOrder={this.addToOrder}
             >
               <Image
                 style={styles.tiny}
@@ -148,7 +178,6 @@ class RewardsScreen extends React.Component {
           />
         </TouchableOpacity>
         <Modal
-          style={{ backgroundColor: "white" }}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -159,18 +188,21 @@ class RewardsScreen extends React.Component {
         >
           <View style={{ marginTop: 0, alignContent: "center" }}>
             <View>
-              <Image
-                style={styles.modal}
-                resizeMode={"contain"}
-                source={require("../assets/saxbys-modal.png")}
-              />
               <View>
-              <Button
+                <Text>{this.state.desc}</Text>
+                <Image style={styles.tiny} source={icons[this.state.icon]} />
+                <Text>{this.state.cost}</Text>
+              </View>
+
+              <View>
+                <Button
                   title="Purchase"
                   onPress={() => {
                     params.onPurchase();
-                    if(balance >= 100){
-                      this.props.navigation.setParams({ balance: balance - 100 }); // this is hacky but what can ya do
+                    if (balance >= this.state.cost) {
+                      this.props.navigation.setParams({
+                        balance: balance - this.state.cost
+                      }); // this is hacky but what can ya do
                     }
                     this.setModalVisible(!this.state.modalVisible);
                   }}
